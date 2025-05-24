@@ -1,0 +1,20 @@
+frase = input("Digite uma frase: ").lower()
+
+vogais = "aeiou"
+consoantes = "bcdfghjklmnpqrstvwxyz"
+
+conta_vogais = 0
+conta_consoantes = 0
+outros = 0
+
+for letra in frase:
+    if letra in vogais:
+        conta_vogais += 1
+    elif letra in consoantes:
+        conta_consoantes += 1
+    else:
+        outros += 1
+
+print(f"Vogais: {conta_vogais}")
+print(f"Consoantes: {conta_consoantes}")
+print(f"Outros caracteres: {outros}")
