@@ -1,0 +1,48 @@
+tarefas = []
+
+def adicionar_tarefa():
+    tarefa = input("Digite a nova tarefa: ")
+    tarefas.append({"tarefa": tarefa, "concluida": False})
+
+def ver_tarefas():
+    if not tarefas:
+        print("Lista vazia.")
+    else:
+        for i, t in enumerate(tarefas):
+            status = "Concluída" if t["concluida"] else "Pendente"
+            print(f"{i}. {t['tarefa']} - {status}")
+
+def remover_tarefa():
+    ver_tarefas()
+    indice = int(input("Digite o índice da tarefa a remover: "))
+    if 0 <= indice < len(tarefas):
+        tarefas.pop(indice)
+    else:
+        print("Índice inválido.")
+
+def marcar_concluida():
+    ver_tarefas()
+    indice = int(input("Digite o índice da tarefa a marcar como concluída: "))
+    if 0 <= indice < len(tarefas):
+        tarefas[indice]["concluida"] = True
+    else:
+        print("Índice inválido.")
+
+def menu():
+    while True:
+        print("\n1. Adicionar\n2. Ver\n3. Remover\n4. Marcar Concluída\n5. Sair")
+        opcao = input("Escolha uma opção: ")
+        if opcao == "1":
+            adicionar_tarefa()
+        elif opcao == "2":
+            ver_tarefas()
+        elif opcao == "3":
+            remover_tarefa()
+        elif opcao == "4":
+            marcar_concluida()
+        elif opcao == "5":
+            break
+        else:
+            print("Opção inválida.")
+
+menu()
